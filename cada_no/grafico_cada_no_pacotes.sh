@@ -11,13 +11,13 @@ set ylabel "Coordinate Y" font ",15" rotate parallel offset 0,-2
 set zlabel "packets sent" font ",15" rotate by 90 offset 0.1,0.1
 
 
-set xrange [0:132]
-set yrange [0:132]
+#set xrange [0:132]
+#set yrange [0:132]
 #set zrange [0:4500]
 #set cbrange [0:4500]
 
-set xtics 26 font ",15" offset 0,-0.3 
-set ytics 26 font ",15" offset 0,-0.3 
+#set xtics 26 font ",15" offset 0,-0.3 
+#set ytics 26 font ",15" offset 0,-0.3 
 #set ztics 100, 1100, 4500 font ",15"
 #set cbtics 100, 1100, 4500 font ",10"
 
@@ -32,5 +32,5 @@ set pm3d
 set dgrid3d
 
 
-splot "result_media_GAFEH_SI.csv" u 2:3:5
+splot "result_media_GAFEH.csv" u 2:3:5
 __EOF
