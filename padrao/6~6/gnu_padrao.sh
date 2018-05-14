@@ -10,7 +10,7 @@ set xlabel "Time (H)" 				font ",15"
 set ylabel "Energy (J)" 			font ",15"
 
 set yrange [0:1800]
-set xrange [0:96]
+set xrange [0:72]
 set xtics 24 						font ",15"
 set ytics 200 						font ",15"
 

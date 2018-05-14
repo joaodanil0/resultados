@@ -16,23 +16,24 @@ GAFEH_BAT_PD = pandas.read_csv('TxEntregaHora_GAFEH_BAT.csv')
 GAFEH_SI_PD = pandas.read_csv('TxEntregaHora_GAFEH_SI.csv')
 collect_PD = pandas.read_csv('TxEntregaHora_collect.csv')
 
-result_GAFEH = numpy.zeros((17,7))
-result_GAFEH_BAT = numpy.zeros((17,7))
-result_GAFEH_SI = numpy.zeros((17,7))
-result_collect = numpy.zeros((17,7))
+result_GAFEH = numpy.zeros((13,7))
+result_GAFEH_BAT = numpy.zeros((13,7))
+result_GAFEH_SI = numpy.zeros((13,7))
+result_collect = numpy.zeros((13,7))
 
-DN_GAFEH = numpy.zeros((17,3))
-DN_GAFEH_BAT = numpy.zeros((17,3))
-DN_GAFEH_SI = numpy.zeros((17,3))
-DN_collect = numpy.zeros((17,3))
+DN_GAFEH = numpy.zeros((13,3))
+DN_GAFEH_BAT = numpy.zeros((13,3))
+DN_GAFEH_SI = numpy.zeros((13,3))
+DN_collect = numpy.zeros((13,3))
 
-PD_GAFEH = numpy.zeros((17,3))
-PD_GAFEH_BAT = numpy.zeros((17,3))
-PD_GAFEH_SI = numpy.zeros((17,3))
-PD_collect = numpy.zeros((17,3))
+PD_GAFEH = numpy.zeros((13,3))
+PD_GAFEH_BAT = numpy.zeros((13,3))
+PD_GAFEH_SI = numpy.zeros((13,3))
+PD_collect = numpy.zeros((13,3))
 
 counter = 0
-for i in range(0,96,6):
+hour = 72
+for i in range(0,hour,6):
 	result_GAFEH[counter] = GAFEH.loc[i]
 	result_GAFEH_BAT[counter] = GAFEH_BAT.loc[i]
 	result_GAFEH_SI[counter] = GAFEH_SI.loc[i]
@@ -49,20 +50,25 @@ for i in range(0,96,6):
 	PD_collect[counter] = collect_PD.loc[i]
 	counter += 1
 
-result_GAFEH[16] = GAFEH.loc[95]
-result_GAFEH_BAT[16] = GAFEH_BAT.loc[95]
-result_GAFEH_SI[16] = GAFEH_SI.loc[95]
-result_collect[16] = collect.loc[95]
+result_GAFEH[counter] = GAFEH.loc[hour-1]
+result_GAFEH_BAT[counter] = GAFEH_BAT.loc[hour-1]
+result_GAFEH_SI[counter] = GAFEH_SI.loc[hour-1]
+result_collect[counter] = collect.loc[hour-1]
 
-DN_GAFEH[16] = GAFEH_DN.loc[95]
-DN_GAFEH_BAT[16] = GAFEH_BAT_DN.loc[95]
-DN_GAFEH_SI[16] = GAFEH_SI_DN.loc[95]
-DN_collect[16] = collect_DN.loc[95]
+DN_GAFEH[counter] = GAFEH_DN.loc[hour-1]
+DN_GAFEH_BAT[counter] = GAFEH_BAT_DN.loc[hour-1]
+DN_GAFEH_SI[counter] = GAFEH_SI_DN.loc[hour-1]
+DN_collect[counter] = collect_DN.loc[hour-1]
 
-PD_GAFEH[counter] = GAFEH_PD.loc[95]
-PD_GAFEH_BAT[counter] = GAFEH_BAT_PD.loc[95]
-PD_GAFEH_SI[counter] = GAFEH_SI_PD.loc[95]
-PD_collect[counter] = collect_PD.loc[95]
+PD_GAFEH[0] = GAFEH_PD.loc[1]
+PD_GAFEH_BAT[0] = GAFEH_BAT_PD.loc[1]
+PD_GAFEH_SI[0] = GAFEH_SI_PD.loc[1]
+PD_collect[0] = collect_PD.loc[1]
+
+PD_GAFEH[counter] = GAFEH_PD.loc[hour-1]
+PD_GAFEH_BAT[counter] = GAFEH_BAT_PD.loc[hour-1]
+PD_GAFEH_SI[counter] = GAFEH_SI_PD.loc[hour-1]
+PD_collect[counter] = collect_PD.loc[hour-1]
 	
 data_GAFEH = {'Pacote de configuracao': result_GAFEH.T[:][1], 'Enviados por hora': result_GAFEH.T[:][2], 'Enviados+Configuracao': result_GAFEH.T[:][6],
 			  'Std configuracao': result_GAFEH.T[:][3], 'Std enviados': result_GAFEH.T[:][4], 'Std env+confi': result_GAFEH.T[:][5],'Hora': result_GAFEH.T[:][0]}

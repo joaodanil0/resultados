@@ -10,7 +10,7 @@ set xlabel "Time (H)" 				font ",15"
 set ylabel "Packets sent" 			font ",15"
 
 set yrange [0:140000]
-set xrange [0:96]
+set xrange [0:72]
 set xtics 24 						font ",15"
 set ytics 20000						font ",15"
 
