@@ -6,23 +6,30 @@ GAFEH_BAT = pandas.read_csv('result_GAFEH_BAT.csv')
 GAFEH_SI = pandas.read_csv('result_GAFEH_SI.csv')
 collect = pandas.read_csv('result_collect.csv')
 
-result_GAFEH = numpy.zeros((13,3))
-result_GAFEH_BAT = numpy.zeros((13,3))
-result_GAFEH_SI = numpy.zeros((13,3))
-result_collect = numpy.zeros((13,3))
 
 counter = 0
-for i in range(0,72,6):
+hour = 72
+tic = 4
+
+total_points = int(hour/tic) + 1
+
+result_GAFEH = numpy.zeros((total_points,3))
+result_GAFEH_BAT = numpy.zeros((total_points,3))
+result_GAFEH_SI = numpy.zeros((total_points,3))
+result_collect = numpy.zeros((total_points,3))
+
+
+for i in range(0,hour,tic):
 	result_GAFEH[counter] = GAFEH.loc[i]
 	result_GAFEH_BAT[counter] = GAFEH_BAT.loc[i]
 	result_GAFEH_SI[counter] = GAFEH_SI.loc[i]
 	result_collect[counter] = collect.loc[i]
 	counter += 1
 
-result_GAFEH[12] = GAFEH.loc[71]
-result_GAFEH_BAT[12] = GAFEH_BAT.loc[71]
-result_GAFEH_SI[12] = GAFEH_SI.loc[71]
-result_collect[12] = collect.loc[71]
+result_GAFEH[counter] = GAFEH.loc[hour-1]
+result_GAFEH_BAT[counter] = GAFEH_BAT.loc[hour-1]
+result_GAFEH_SI[counter] = GAFEH_SI.loc[hour-1]
+result_collect[counter] = collect.loc[hour-1]
 	
 data_GAFEH = {'Media': result_GAFEH.T[:][2], 'Desvio padrao': result_GAFEH.T[:][1], 'Hora': result_GAFEH.T[:][0]}
 data_GAFEH_BAT = {'Media': result_GAFEH_BAT.T[:][2], 'Desvio padrao': result_GAFEH_BAT.T[:][1], 'Hora': result_GAFEH_BAT.T[:][0]}

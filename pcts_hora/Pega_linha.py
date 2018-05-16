@@ -16,24 +16,30 @@ GAFEH_BAT_PD = pandas.read_csv('TxEntregaHora_GAFEH_BAT.csv')
 GAFEH_SI_PD = pandas.read_csv('TxEntregaHora_GAFEH_SI.csv')
 collect_PD = pandas.read_csv('TxEntregaHora_collect.csv')
 
-result_GAFEH = numpy.zeros((13,7))
-result_GAFEH_BAT = numpy.zeros((13,7))
-result_GAFEH_SI = numpy.zeros((13,7))
-result_collect = numpy.zeros((13,7))
-
-DN_GAFEH = numpy.zeros((13,3))
-DN_GAFEH_BAT = numpy.zeros((13,3))
-DN_GAFEH_SI = numpy.zeros((13,3))
-DN_collect = numpy.zeros((13,3))
-
-PD_GAFEH = numpy.zeros((13,3))
-PD_GAFEH_BAT = numpy.zeros((13,3))
-PD_GAFEH_SI = numpy.zeros((13,3))
-PD_collect = numpy.zeros((13,3))
 
 counter = 0
 hour = 72
-for i in range(0,hour,6):
+tic = 4
+
+total_points = int(hour/tic) + 1
+
+result_GAFEH = numpy.zeros((total_points,7))
+result_GAFEH_BAT = numpy.zeros((total_points,7))
+result_GAFEH_SI = numpy.zeros((total_points,7))
+result_collect = numpy.zeros((total_points,7))
+
+DN_GAFEH = numpy.zeros((total_points,3))
+DN_GAFEH_BAT = numpy.zeros((total_points,3))
+DN_GAFEH_SI = numpy.zeros((total_points,3))
+DN_collect = numpy.zeros((total_points,3))
+
+PD_GAFEH = numpy.zeros((total_points,3))
+PD_GAFEH_BAT = numpy.zeros((total_points,3))
+PD_GAFEH_SI = numpy.zeros((total_points,3))
+PD_collect = numpy.zeros((total_points,3))
+
+
+for i in range(0,hour,tic):
 	result_GAFEH[counter] = GAFEH.loc[i]
 	result_GAFEH_BAT[counter] = GAFEH_BAT.loc[i]
 	result_GAFEH_SI[counter] = GAFEH_SI.loc[i]

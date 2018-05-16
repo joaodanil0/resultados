@@ -21,9 +21,9 @@ set grid ytics
 set grid xtics
 
 plot \
-	 "data_PD_GAFEH.csv"     		u 3:4:2 title "GAF-EH"     		with yerrorline lw 1 lt 2 lc 1 pt 1 ps 1,\
-	 "data_PD_collect.csv" 			u 3:4:2 title "Collect-both" 	with yerrorline lw 1 lt 2 lc 2 pt 2 ps 1,\
-	 "data_PD_GAFEH_BAT.csv"  		u 3:4:2 title "Collect-BAT"		with yerrorline lw 1 lt 2 lc 4 pt 4 ps 1,\
-	 "data_PD_GAFEH_SI.csv" 		u 3:4:2 title "Collect-SI"		with yerrorline lw 1 lt 2 lc 6 pt 6 ps 1, 
+	 "data_PD_GAFEH.csv"     		u 3:4 title "GAF-EH"     		w lp lw 1 lt 2 lc 1 pt 1 ps 1,\
+	 "data_PD_collect.csv" 			u 3:4 title "Collect-both" 		w lp lw 1 lt 2 lc 2 pt 2 ps 1,\
+	 "data_PD_GAFEH_BAT.csv"  		u 3:4 title "Collect-BAT"		w lp lw 1 lt 2 lc 4 pt 4 ps 1,\
+	 "data_PD_GAFEH_SI.csv" 		u 3:4 title "Collect-SI"		w lp lw 1 lt 2 lc 6 pt 6 ps 1, 
 	 
 __EOF

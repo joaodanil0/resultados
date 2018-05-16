@@ -20,20 +20,10 @@ set size 0.5
 set grid ytics
 set grid xtics
 
-
-
-
-
-
-
-
-
 plot \
-	 "nos_mortos_GAFEH.csv"     	u 1:3:2 title "GAF-EH"    		with yerrorline lw 1 lt 2 lc 1 pt 1 ps 1,\
-	 "nos_mortos_collect.csv" 		u 1:3:2 title "Collect-both" 	with yerrorline lw 1 lt 2 lc 2 pt 2 ps 1,\
-	 "nos_mortos_GAFEH_BAT.csv"  	u 1:3:2 title "Collect-BAT" 	with yerrorline lw 1 lt 2 lc 4 pt 4 ps 1,\
-	 "nos_mortos_GAFEH_SI.csv"   	u 1:3:2 title "Collect-SI"   	with yerrorline lw 1 lt 2 lc 6 pt 6 ps 1,\
-	 "nos_mortos_collect_1000.csv"	u 1:3:2 title "Collect-both1000"with yerrorline lw 1 lt 2 lc 7 pt 8 ps 1,\
-	 "nos_mortos_GAFEH_SI_1000.csv"	u 1:3:2 title "Collect-SI1000"	with yerrorline lw 1 lt 2 lc 8 pt 12 ps 1
+	 "nos_mortos_GAFEH.csv"     	u 1:3 title "GAF-EH"    	w lp lw 1 lt 2 lc 1 pt 1 ps 1,\
+	 "nos_mortos_collect.csv" 		u 1:3 title "Collect-both" 	w lp lw 1 lt 2 lc 2 pt 2 ps 1,\
+	 "nos_mortos_GAFEH_BAT.csv"  	u 1:3 title "Collect-BAT" 	w lp lw 1 lt 2 lc 4 pt 4 ps 1,\
+	 "nos_mortos_GAFEH_SI.csv"   	u 1:3 title "Collect-SI"   	w lp lw 1 lt 2 lc 6 pt 6 ps 1
 
 __EOF
