@@ -2,7 +2,7 @@
 
 /usr/bin/gnuplot <<_EOF
 
-set out  "fig5.eps"
+set out  "fig6.eps"
 set term postscript eps enhanced color
 
 set xrange[0:1000]
@@ -15,9 +15,9 @@ unset ztics
 set cbtics 120, 1180, 7200					font ",15" offset -1,0
 
 
-set ylabel "Intensidade Solar (W/m^2)"  		font ",15" offset 0,0 
-set xlabel "Energia da bateria (J)" 			font ",15" rotate parallel offset -5,0
-set cblabel "Tempo entre pacotes (s)" 			font ",12" offset -1,0
+set ylabel "Solar Intensity (W/m^2)"  		font ",15" offset 0,0 
+set xlabel "Battery (J)" 			font ",15" rotate parallel offset -5,0
+set cblabel "Time between packets (s)" 			font ",12" offset -1,0
 set size 0.5
 
 set colorbox user size 0.02,0.2 origin 0.39,0.18
@@ -45,14 +45,14 @@ minInt = 0.0
 e = 0.85
 
 
-mediaK(x,y) = (maxEnv - minEnv)*( ((x - maxBat)/(minBat - maxBat))*e + ((y - maxInt)/(minInt - maxInt))*(1-e)) + minEnv
+#mediaK(x,y) = (maxEnv - minEnv)*( ((x - maxBat)/(minBat - maxBat))*e + ((y - maxInt)/(minInt - maxInt))*(1-e)) + minEnv
 
-splot mediaK(x,y)
+#splot mediaK(x,y)
 
 BAT(x) = ((maxEnv - minEnv)/(minBat - maxBat))*(x - maxBat) + minEnv
 SI(y) = ((maxEnv - minEnv)/(minInt - maxInt))*(y - maxInt) + minEnv
 
-#media_k(x,y) = BAT(x)*e + (1-e)*SI(y)
-#splot media_k(x,y)
+media_k(x,y) = BAT(x)*e + (1-e)*SI(y)
+splot media_k(x,y)
 
 _EOF

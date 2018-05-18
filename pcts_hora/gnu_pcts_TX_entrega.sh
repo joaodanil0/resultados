@@ -21,9 +21,9 @@ set grid ytics
 set grid xtics
 
 plot \
-	 "TxEntregaHora_GAFEH.csv"     	u 1:3 title "GAF-EH"     		w lp lw 1 lt 2 lc 1 pt 1 ps 1,\
-	 "TxEntregaHora_collect.csv" 	u 1:3 title "Collect-both" 	    w lp lw 1 lt 2 lc 2 pt 2 ps 1,\
-	 "TxEntregaHora_GAFEH_BAT.csv"  u 1:3 title "Collect-BAT"		w lp lw 1 lt 2 lc 4 pt 4 ps 1,\
-	 "TxEntregaHora_GAFEH_SI.csv" 	u 1:3 title "Collect-SI"		w lp lw 1 lt 2 lc 6 pt 6 ps 1
+	 "TxEntregaHora_GAFEH.csv"     	u 1:3:2 title "GAF-EH"     		w yerrorline lw 1 lt 2 lc 1 pt 1 ps 1,\
+	 "TxEntregaHora_collect.csv" 	u 1:3:2 title "Collect-both"    w yerrorline lw 1 lt 2 lc 2 pt 2 ps 1,\
+	 "TxEntregaHora_GAFEH_BAT.csv"  u 1:3:2 title "Collect-BAT"		w yerrorline lw 1 lt 2 lc 4 pt 4 ps 1,\
+	 "TxEntregaHora_GAFEH_SI.csv" 	u 1:3:2 title "Collect-SI"		w yerrorline lw 1 lt 2 lc 6 pt 6 ps 1
 	 
 __EOF

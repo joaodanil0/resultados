@@ -4,15 +4,15 @@
 
 
 set term postscript eps enhanced color
-set out  "Modelo.eps"
-set yrange [0:7200]
-set xrange [0:400]
+set out  "fig1.eps"
+set yrange [0:1200]
+set xrange [0:24]
 #set ytics 120,1000,7200					font ",15"
-set xtics 100 								font ",15"
+set xtics 2 								font ",15"
 
 set key 									font ",15" right top
-set ylabel "Tempo (s)" 						font ",15"
-set xlabel "Intensidade solar (W/m^2)" 		font ",15"
+set ylabel "Solar Intensity (W/m^2)"		font ",15"
+set xlabel "Time (H)"			 		font ",15"
 set size 0.5
 
 
@@ -31,10 +31,10 @@ minInt = 0.0
 BAT(x) = ((maxEnv - minEnv)/(minBat - maxBat))*(x - maxBat) + minEnv
 SI(x) = ((maxEnv - minEnv)/(minInt - maxInt))*(x - maxInt) + minEnv
 
-#plot (-27.778*x*x + 666.667*x - 3000.024) 		t "Modelo 1" lw 3 lt 1 lc rgb "red"		# Modelo 1
-#plot (-27.778*x*x + 666.667*x - 3000.024)*0.4 	t "Modelo 2" lw 3 lt 1 lc rgb "red"		# Modelo 2
+plot (-27.778*x*x + 666.667*x - 3000.024) 		t "Model 1" lw 3 lt 1 lc rgb "red"		# Modelo 1
+#plot (-27.778*x*x + 666.667*x - 3000.024)*0.4 	t "Model 2" lw 3 lt 1 lc rgb "red"		# Modelo 2
 
-#plot BAT(x)			 						t "Modelo 3" lw 3 lt 1 lc rgb "red"		# Modelo 3
-#plot SI(x)										t "Modelo 4" lw 3 lt 1 lc rgb "red"		# Modelo 4
+#plot BAT(x)			 						t "Model 3" lw 3 lt 1 lc rgb "red"		# Modelo 3
+#plot SI(x)										t "Model 4" lw 3 lt 1 lc rgb "red"		# Modelo 4
 
 _EOF
