@@ -66,11 +66,6 @@ DN_GAFEH_BAT[counter] = GAFEH_BAT_DN.loc[hour-1]
 DN_GAFEH_SI[counter] = GAFEH_SI_DN.loc[hour-1]
 DN_collect[counter] = collect_DN.loc[hour-1]
 
-PD_GAFEH[0] = GAFEH_PD.loc[1]
-PD_GAFEH_BAT[0] = GAFEH_BAT_PD.loc[1]
-PD_GAFEH_SI[0] = GAFEH_SI_PD.loc[1]
-PD_collect[0] = collect_PD.loc[1]
-
 PD_GAFEH[counter] = GAFEH_PD.loc[hour-1]
 PD_GAFEH_BAT[counter] = GAFEH_BAT_PD.loc[hour-1]
 PD_GAFEH_SI[counter] = GAFEH_SI_PD.loc[hour-1]
